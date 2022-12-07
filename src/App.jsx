@@ -1,19 +1,18 @@
-import { Col, Container, Row } from "react-bootstrap"
-import Results from "./components/Results/Results"
-import SideBar from "./components/SideBar/SideBar"
+import Layout from "./components/Layout/Layout"
+import GifsPage from "./pages/GifsPage"
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import StickersPage from "./pages/StickersPage"
+import ErrorPage from "./pages/ErrorPage"
 
 function App() {
-  return (
-    <Container fluid>
-      <Row>
-        <Col xs={12} sm={4} className="layout bg-success">
-          <SideBar/>
-        </Col>
-        <Col xs={12} sm={8} className="layout bg-warning">
-          <Results/>
-        </Col>
-      </Row>
-    </Container>
+  return(
+    <Router>
+      <Routes>
+        <Route path='/gifs' element={<GifsPage/>}/>
+        <Route path='/stickers' element={<StickersPage/>}/>
+        <Route path='/*' element={<ErrorPage/>}/>
+      </Routes>
+    </Router>
   )
 }
 

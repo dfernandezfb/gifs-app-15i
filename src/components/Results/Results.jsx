@@ -1,26 +1,10 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import axiosInstance from "../../config/axios";
+import useGet from "../../hooks/useGet";
 import GifCard from "../GifCard/GifCard";
 
-const Results = () => {
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const getGifs = async()=>{
-    try {
-      const {data} = await axiosInstance.get('/trending?api_key='+import.meta.env.VITE_APP_GIPHY_API_KEY);
-      setResults(data.data);
-      setLoading(false);
-    } catch (error) {
-      toast.error("Error en la conexión")
-    }
-  }
-  useEffect(()=>{
-    getGifs();
-  },[])
+const Results = ({results}) => {
+  const [trending, loading] = useGet('/gifs/trending?api_key=' + import.meta.env.VITE_APP_GIPHY_API_KEY)
   return (
     <>
     {loading? 
@@ -28,13 +12,19 @@ const Results = () => {
       <Spinner animation="border"/>
     </div>
     :
+    results.length!==0?
     <div className="d-flex flex-wrap">
       {
         results.map((result,index)=> <GifCard key={index} image={result.images.original.url} title={result.title}/>)
       }
     </div> 
+    : 
+    <div className="d-flex flex-wrap">
+      {
+        trending.map((result,index)=> <GifCard key={index} image={result.images.original.url} title={result.title}/>)
+      }
+    </div> 
     }
-    <ToastContainer/>
     </> 
   );
 }
