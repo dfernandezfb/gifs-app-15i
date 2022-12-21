@@ -1,0 +1,26 @@
+useState --> Nos permite crear y modificar estados
+
+useEffect--> Nos permite manipular el ciclo de vida del componente
+
+useReducer--> const [state, dispatch] = useReducer(cambiadorDelEstado, estadoInicial)
+
+{
+  name,
+  lastname,
+  age,
+  payment,
+  gender
+}
+
+dispatch({action:'reset'})
+
+
+useContext--> Genera un estado global 
+
+useMemo--> Guarda un resultado de una funcion
+
+useCallback --> Guarda una funcion
+
+useRef-->Te permite agarrar atraves de una referencia a un nodo del DOM
+
+useImperativeHandle--> Te permite compartir a un componente padre propiedades y metodos de nodos del DOM que tenga adentro

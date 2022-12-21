@@ -16,7 +16,7 @@ const useGet = (url, axios)=>{
   useEffect(()=>{
     getData();
   },[])
-  return [state, loading]
+  return [state, loading, getData]
 }
 
 export default useGet;

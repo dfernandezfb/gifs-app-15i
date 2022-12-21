@@ -1,14 +1,29 @@
 {
-  "users":[
+  "users": [
     {
-      "id":"123456",
-      "name":"diego",
-      "role":"admin"
+      "id": "1234567",
+      "name": "Marcos",
+      "role": "admin"
     },
     {
-      "id":"1234567",
-      "name":"Marcos",
-      "role":"admin"
+      "id": "2122",
+      "name": "Valentin",
+      "role": "admin"
+    },
+    {
+      "id": "654321",
+      "name": "Javier",
+      "role": "admin"
+    },
+    {
+      "id": "351351",
+      "name": "Stella",
+      "role": "admin"
+    },
+    {
+      "id": "51a5s1d",
+      "name": "Marcos",
+      "role": "user"
     }
   ]
 }
