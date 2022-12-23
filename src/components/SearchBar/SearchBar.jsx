@@ -1,9 +1,11 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import {axiosInstance} from "../../config/axios";
+import { GifsContext } from "../../context/GifsContext";
 
-const SearchBar = ({setResults, search, setSearch, isSearching, setIsSearching}) => {
+const SearchBar = () => {
+  const {setResults, search, setSearch, isSearching, setIsSearching} = useContext(GifsContext);
+
   const doSearch = async()=>{
     try {
       const {data} = await axiosInstance.get(`/gifs/search?api_key=${import.meta.env.VITE_APP_GIPHY_API_KEY}&q=${search}&limit=10`);

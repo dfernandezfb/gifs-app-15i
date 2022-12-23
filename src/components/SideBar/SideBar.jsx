@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SearchBar from "../SearchBar/SearchBar";
 
-const SideBar = ({setResults, search, setSearch, isSearching, setIsSearching}) => {
+const SideBar = () => {
   const SideBarContainer = styled.div`
   width:100%;
   height:100%;
@@ -12,7 +12,7 @@ const SideBar = ({setResults, search, setSearch, isSearching, setIsSearching}) =
   `
   return (
     <SideBarContainer>
-      <SearchBar setResults={setResults} search={search} setSearch={setSearch} isSearching={isSearching} setIsSearching={setIsSearching}/>
+      <SearchBar />
     </SideBarContainer> 
   );
 }

@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Spinner } from "react-bootstrap";
 import 'react-toastify/dist/ReactToastify.css';
 import { axiosInstance } from "../../config/axios";
+import { GifsContext } from "../../context/GifsContext";
 import useGet from "../../hooks/useGet";
 import GifCard from "../GifCard/GifCard";
 
-const Results = ({results}) => {
+const Results = () => {
+  const {results} = useContext(GifsContext)
   const [trending, loading] = useGet('/gifs/trending?api_key=' + import.meta.env.VITE_APP_GIPHY_API_KEY, axiosInstance)
   return (
     <>

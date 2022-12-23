@@ -24,6 +24,11 @@
       "id": "51a5s1d",
       "name": "Marcos",
       "role": "user"
+    },
+    {
+      "id": "51315",
+      "name": "Martin",
+      "role": "admin"
     }
   ]
 }

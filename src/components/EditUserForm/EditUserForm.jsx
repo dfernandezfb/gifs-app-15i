@@ -4,19 +4,12 @@ import { Button, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { axiosBack } from "../../config/axios";
 import { ADD_USER_VALUES, ERROR_MESSAGE } from "../../constants";
+import useForm from "../../hooks/useForm";
 
 const EditUserForm = ({handleClose, getUsers,selected}) => {
-  const [values, setValues] = useState(ADD_USER_VALUES);
+  const { values, handleChange, handleSubmit} = useForm(ADD_USER_VALUES, editUser);
 
-  const handleChange = (e)=>{
-    setValues({
-      ...values,
-      [e.target.name] : e.target.value
-    })
-  }
-
-  const handleSubmit = async(e)=>{
-    e.preventDefault();
+  const editUser = async()=>{
     try {
       await axiosBack.put('/users/'+selected,values);
       getUsers();
